@@ -7,8 +7,8 @@
 *
 *  @author: Michael Fahy
 *  Email:  fahy@chapman.edu
-*  Date:  2/4/2018
-*  @  version: 3.0
+*  Date:  2/13/2020
+*  @  version: 3.1
 */
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -20,7 +20,7 @@ import java.net.Socket;
 class TcpServer {
 
   public static void main(String[] argv) throws Exception {
-    //String welcomeMessage = "Welcome\n";
+    String welcomeMessage = "Welcome. Please type a sentence.\n";
     String clientSentence;
     String capitalizedSentence;
 
@@ -34,11 +34,13 @@ class TcpServer {
     }
 
     while (true) {
+      System.out.println("Waiting for Client to connect.");
       Socket connectionSocket = welcomeSocket.accept();
       BufferedReader inFromClient = new BufferedReader(
           new InputStreamReader(connectionSocket.getInputStream()));
       DataOutputStream  outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-
+      outToClient.writeBytes(welcomeMessage);
+      System.out.println("Welcome message sent.");
       clientSentence = inFromClient.readLine();
       System.out.println(clientSentence);
       capitalizedSentence = clientSentence.toUpperCase() + '\n';

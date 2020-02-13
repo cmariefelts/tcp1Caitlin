@@ -6,8 +6,8 @@
 *
 *  @author: Michael Fahy
 *  Email:  fahy@chapman.edu
-*  Date:  9/22/2017
-*  @  version: 3.0
+*  Date:  2/13/2020
+*  @  version: 3.1
 */
 
 import java.io.BufferedReader;
@@ -18,11 +18,6 @@ import java.net.Socket;
 
 class TcpClient {
   public static void main(String[] argv) throws Exception {
-
-    BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-    System.out.println("Type a sentence :");
-    String sentence = inFromUser.readLine();
-
     Socket clientSocket = null;
 
     try {
@@ -32,9 +27,15 @@ class TcpClient {
       System.exit(0);
     }
 
-    DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
     BufferedReader inFromServer =  new BufferedReader(
         new InputStreamReader(clientSocket.getInputStream()));
+    String welcomeMessage = inFromServer.readLine();
+    System.out.println("FROM SERVER: " + welcomeMessage);
+
+    BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+    String sentence = inFromUser.readLine();
+
+    DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
     outToServer.writeBytes(sentence + '\n');
 
     String modifiedSentence = inFromServer.readLine();
