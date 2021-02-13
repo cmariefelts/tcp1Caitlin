@@ -39,6 +39,6 @@ after receiving the capitalized version of the second sentence from the server.
 
 ## Execution Instructions
 
-* Run the server in one terminal: <code> java Tcp2Server </code>
-* Run the client in a second terminal: <code> java Tcp2Client </code>
+* Run the server in one terminal: <code> java TcpServer2 </code>
+* Run the client in a second terminal: <code> java TcpClient2 </code>
 
