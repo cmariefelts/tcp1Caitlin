@@ -1,21 +1,20 @@
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
-*  TCP Server Program
+*  TCP Server Program.
 *  Listens on a TCP port
 *  Receives a line of input from a TCP client
 *  Returns an upper case version of the line to the client
 *
 *  @author: Michael Fahy
-*  Email:  fahy@chapman.edu
-*  Date:  2/13/2020
-*  @  version: 3.1
+*      Email:  fahy@chapman.edu
+*      Date:  2/13/2021
+*  @version: 3.2
 */
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-
-import java.net.ServerSocket;
-import java.net.Socket;
 
 class TcpServer {
 
@@ -41,6 +40,7 @@ class TcpServer {
       DataOutputStream  outToClient = new DataOutputStream(connectionSocket.getOutputStream());
       outToClient.writeBytes(welcomeMessage);
       System.out.println("Welcome message sent.");
+
       clientSentence = inFromClient.readLine();
       System.out.println(clientSentence);
       capitalizedSentence = clientSentence.toUpperCase() + '\n';

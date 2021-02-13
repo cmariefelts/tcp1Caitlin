@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
 /**
 *  TCP Client Program
 *  Connects to a TCP Server
@@ -5,16 +9,10 @@
 *  Receives a response from the server and displays it.
 *
 *  @author: Michael Fahy
-*  Email:  fahy@chapman.edu
-*  Date:  2/13/2020
-*  @  version: 3.1
+*      Email:  fahy@chapman.edu
+*      Date:  2/13/2021
+*  @version: 3.2
 */
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-
-import java.net.Socket;
 
 class TcpClient {
   public static void main(String[] argv) throws Exception {
