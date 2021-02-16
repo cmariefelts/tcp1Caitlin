@@ -12,9 +12,9 @@ after receiving the capitalized version of the second sentence from the server.
 
 ## Identifying Information
 
-* Name: Michael Fahy
-* Student ID: 
-* Email: fahy@chapman.edu
+* Name: Caitlin Felts
+* Student ID: 2318073
+* Email: felts@chapman.edu
 * Course: CPSC 353
 * Assignment: PA00 - TCP Client and Server
 
